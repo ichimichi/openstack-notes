@@ -54,18 +54,18 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 ```
 
-[check nodes](on master) 
+(on master)[check nodes]
 ```
 kubectl get nodea
 ```
 
-[check pods](on master) 
+(on master)[check pods]
 ```
 kubectl get pods -n kube-system
 
 ```
 
-[if coredns pending](on master) 
+(on master)[if coredns pending]
 ```
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
@@ -93,13 +93,12 @@ You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at: 
 https://kubernetes.io/docs/concepts/cluster-administration/addons/Then you can join any number of worker nodes by running the following on each as root:
 
-[if failed to join](on worker) 
+(on worker)[if failed to join]
 ```
 kubeadm reset
 ```
 
 ```
-
 kubeadm join 192.168.0.130:6443 --token ihf2cq.slhg3r6hk178o1j3 --discovery-token-ca-cert-hash sha256:ae51ff3a86eec452ffebc90717081e358fae4400b8870eb83ca329490a21eb4f
 
 ```
