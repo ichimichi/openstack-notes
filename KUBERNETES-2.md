@@ -52,7 +52,7 @@ kubectl delete pod idli
 #### kind: Deployment
 creates pod with replica sets
 ```
-kubectl create deployment appl1 -image=httpd
+kubectl create deployment app1 --image=httpd
 kubectl get deployments -o wide
 kubectl get pods -o wide
 kubectl get rs
