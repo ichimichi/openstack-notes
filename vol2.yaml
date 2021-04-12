@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+spec:
+  containers:
+  - name: c1
+    image: nginx
+    volumeMounts:
+    - name: v2
+      mountPath: /vadapa 
+  volumes:
+  - name: v2
+    emptyDir: {}

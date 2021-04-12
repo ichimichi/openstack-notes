@@ -135,3 +135,13 @@ kubectl --record deployment.apps/app3 set image deployment.v1.apps/app3 k8s-roll
 kubectl rollout undo deployment/app3 --to-revision=2
 ```
 
+### Volume
+
+##### Empty dir
+> volatile memory
+
+
+
+##### Hostpath
+
+##### Persisten Volume Claim PVC
