@@ -140,8 +140,14 @@ kubectl rollout undo deployment/app3 --to-revision=2
 ##### EmptyDir
 > volatile memory
 
+[vol1.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol1.yaml)
+
+[vol2.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol1.yaml)
+
 ##### Hostpath
 > 
+
+[vol3.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol3.yaml)
 
 to set pod label
 ```
