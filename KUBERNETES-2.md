@@ -31,5 +31,14 @@ kubectl explain pod
 kubectl create -f mypod.yaml  
 ```
 
-
+### Modifying delpoyed pods
+```
+kubectl edit idli
+```
+or
+edit yaml file
+and execute
+```
+kubectl apply -f mypod.yaml
+```
 
