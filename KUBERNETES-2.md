@@ -141,7 +141,9 @@ kubectl rollout undo deployment/app3 --to-revision=2
 > volatile memory
 
 ##### Hostpath
-> to set pod label
+> 
+
+to set pod label
 ```
 kubectl label pod/pod3 "app=prod"
 ```
