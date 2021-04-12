@@ -97,7 +97,11 @@ kubectl get service
 ```
 
 ##### LoadBalancer
-
+> kubernetes should be cloud native
+> Load Balancer is required to perform this, otherwise external
+> ip will be in pending state
 ```
+kubectl expose deployment/app1 --type=LoadBalancer --port=80
+kubectl get service
 ```
 
