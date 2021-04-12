@@ -35,9 +35,9 @@ kubectl create -f mypod.yaml
 ```
 kubectl edit idli
 ```
-> or
-> edit yaml file
-> and execute
+or
+edit yaml file
+and execute
 ```
 kubectl apply -f mypod.yaml
 ```
@@ -50,7 +50,7 @@ kubectl delete pod idli
 ### Scale up/down applications, Self Healing
 
 ##### kind: Deployment
-> creates pod with replica sets
+creates pod with replica sets
 ```
 kubectl create deployment app1 --image=httpd
 kubectl get deployments -o wide
@@ -79,7 +79,7 @@ kubectl delete pod app1-sajdhkdfs
 > ClusterIP, NodePort & LoadBalancer
 
 ##### NodePort
-> accessible externally, Round Robin method
+accessible externally, Round Robin method
 ```
 kubectl expose deployment/app1 --type=NodePort --port=80
 kubectl get service
@@ -90,7 +90,7 @@ kubectl exec -it app1-sdsdf bash
 ```
 
 ##### ClusterIP
-> accessible internally only, Round Robin method
+accessible internally only, Round Robin method
 ```
 kubectl expose deployment/app1 --type=ClusterIP --port=80
 kubectl get service
@@ -98,15 +98,15 @@ kubectl get service
 
 ##### LoadBalancer
 > kubernetes should be cloud native
-> Load Balancer is required to perform this, otherwise external
-> ip will be in pending state
+Load Balancer is required to perform this, otherwise external
+ip will be in pending state
 ```
 kubectl expose deployment/app1 --type=LoadBalancer --port=80
 kubectl get service
 ```
 
 ### Rolling Out and Rolling Back
-> to check rollout history
+to check rollout history
 ```
 kubectl rollout history deployment/app3
 ```
@@ -118,12 +118,12 @@ kubectl expose deployment/app3 --type=NodePort --port=80
 kubectl scale deployment/app3 --replicas=4
 ```
 
-> obtain container name, which will be required during rolling out
+obtain container name, which will be required during rolling out
 ```
 kubectl describe deployment/app3
 ```
 
-> Rolling out new version
+Rolling out new version
 ```
 kubectl --record deployment.apps/app3 set image deployment.v1.apps/app3 k8s-rollaback-7n5x4=docker.io/kharatramesh/k8s_rollaback:webv2.0
 ```
