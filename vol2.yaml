@@ -8,7 +8,7 @@ spec:
     image: nginx
     volumeMounts:
     - name: v2
-      mountPath: /vadapa 
+      mountPath: /vadapav 
   volumes:
   - name: v2
     emptyDir: {}

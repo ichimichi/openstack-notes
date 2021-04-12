@@ -137,11 +137,13 @@ kubectl rollout undo deployment/app3 --to-revision=2
 
 ### Volume
 
-##### Empty dir
+##### EmptyDir
 > volatile memory
 
-
-
 ##### Hostpath
+> to set pod label
+```
+kubectl label pod/pod3 "app=prod"
+```
 
 ##### Persisten Volume Claim PVC
