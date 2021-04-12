@@ -42,3 +42,7 @@ and execute
 kubectl apply -f mypod.yaml
 ```
 
+### Deleting deployed pods
+```
+kubectl delete pod idli
+```
