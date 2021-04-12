@@ -105,3 +105,6 @@ kubectl expose deployment/app1 --type=LoadBalancer --port=80
 kubectl get service
 ```
 
+### Rolling Out and Rolling Back
+
+
