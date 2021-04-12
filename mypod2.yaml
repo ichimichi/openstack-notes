@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: samosa
+spec:
+  containers:
+  - name: c2
+    image: httpd
