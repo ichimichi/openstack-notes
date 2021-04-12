@@ -77,13 +77,22 @@ kubectl delete pod app1-sajdhkdfs
 
 ### Access Application
 ClusterIP, NodePort & LoadBalancer
+
+#### NodePort
+accessible externally, Round Robin method
 ```
+kubectl expose deployment/app1 --type=NodePort --port=80
 kubectl get service
-kubectl expose deployment app1 --type=NodePort --port=80
 ```
 
 ```
 kubectl exec -it app1-sdsdf bash
 ```
 
+#### ClusterIP
+accessible internally only, Round Robin method
+```
+kubectl expose deployment/app1 --type=ClusterIP --port=80
+kubectl get service
+```
 
