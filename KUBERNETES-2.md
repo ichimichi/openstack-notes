@@ -149,3 +149,6 @@ kubectl label pod/pod3 "app=prod"
 ```
 
 ##### Persisten Volume Claim PVC
+>
+
+
