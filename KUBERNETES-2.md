@@ -75,4 +75,15 @@ watch kubectl get pods -o wide
 kubectl delete pod app1-sajdhkdfs
 ```
 
+### Access Application
+ClusterIP, NodePort & LoadBalancer
+```
+kubectl get service
+kubectl expose deployment app1 --type=NodePort --port=80
+```
+
+```
+kubectl exec -it app1-sdsdf bash
+```
+
 
