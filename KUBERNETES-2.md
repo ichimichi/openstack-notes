@@ -5,7 +5,7 @@ curl 10.44.0.1
 ```
 
 ### Declarative
-mypod.yaml
+> mypod.yaml
 ```
 apiVersion: v1
 kind: Pod
@@ -35,9 +35,9 @@ kubectl create -f mypod.yaml
 ```
 kubectl edit idli
 ```
-or
-edit yaml file
-and execute
+> or
+> edit yaml file
+> and execute
 ```
 kubectl apply -f mypod.yaml
 ```
@@ -49,8 +49,8 @@ kubectl delete pod idli
 
 ### Scale up/down applications, Self Healing
 
-#### kind: Deployment
-creates pod with replica sets
+##### kind: Deployment
+> creates pod with replica sets
 ```
 kubectl create deployment app1 --image=httpd
 kubectl get deployments -o wide
@@ -58,15 +58,15 @@ kubectl get pods -o wide
 kubectl get rs
 ```
 
-#### Scaling
+##### Scaling
 ```
 kubectl scale deployment/app1 --replicas=4
 kubectl get pods -o wide
 kubectl get rs
 ```
 
-#### Demonstration of Self Healing
-watch kubectl pods on a new session
+##### Demonstration of Self Healing
+> watch kubectl pods on a new session
 ```
 watch kubectl get pods -o wide
 ```
@@ -76,10 +76,10 @@ kubectl delete pod app1-sajdhkdfs
 ```
 
 ### Access Application
-ClusterIP, NodePort & LoadBalancer
+> ClusterIP, NodePort & LoadBalancer
 
-#### NodePort
-accessible externally, Round Robin method
+##### NodePort
+> accessible externally, Round Robin method
 ```
 kubectl expose deployment/app1 --type=NodePort --port=80
 kubectl get service
@@ -89,10 +89,15 @@ kubectl get service
 kubectl exec -it app1-sdsdf bash
 ```
 
-#### ClusterIP
-accessible internally only, Round Robin method
+##### ClusterIP
+> accessible internally only, Round Robin method
 ```
 kubectl expose deployment/app1 --type=ClusterIP --port=80
 kubectl get service
+```
+
+##### LoadBalancer
+
+```
 ```
 
