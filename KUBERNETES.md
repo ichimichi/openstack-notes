@@ -56,7 +56,8 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 
 (on master)[check nodes]
 ```
-kubectl get nodea
+kubectl get nodes
+kubectl get nodes -o wide 
 ```
 
 (on master)[check pods]
