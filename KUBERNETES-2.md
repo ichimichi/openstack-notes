@@ -46,3 +46,33 @@ kubectl apply -f mypod.yaml
 ```
 kubectl delete pod idli
 ```
+
+### Scale up/down applications, Self Healing
+
+#### kind: Deployment
+creates pod with replica sets
+```
+kubectl create deployment appl1 -image=httpd
+kubectl get deployments -o wide
+kubectl get pods -o wide
+kubectl get rs
+```
+
+#### Scaling
+```
+kubectl scale deployment/app1 --replicas=4
+kubectl get pods -o wide
+kubectl get rs
+```
+
+#### Demonstration of Self Healing
+watch kubectl pods on a new session
+```
+watch kubectl get pods -o wide
+```
+
+```
+kubectl delete pod app1-sajdhkdfs
+```
+
+
