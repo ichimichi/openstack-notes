@@ -106,5 +106,31 @@ kubectl get service
 ```
 
 ### Rolling Out and Rolling Back
+> to check rollout history
+```
+kubectl rollout history deployment/app3
+```
+##### Demonstration : Rolling out new version
+> create new deployment with 4 replicas and expose with type nodeport or loadbalancer
+```
+kubectl create deployment app3 --image=docker.io/kharatramesh/k8s_rollaback:webv1.0
+kubectl expose deployment/app3 --type=NodePort --port=80
+kubectl scale deployment/app3 --replicas=4
+```
 
+> obtain container name, which will be required during rolling out
+```
+kubectl describe deployment/app3
+```
+
+> Rolling out new version
+```
+kubectl --record deployment.apps/app3 set image deployment.v1.apps/app3 k8s-rollaback-7n5x4=docker.io/kharatramesh/k8s_rollaback:webv2.0
+```
+
+##### Demonstration : Rolling back to older version
+> check rollout history for revision number
+```
+kubectl rollout undo deployment/app3 --to-revision=2
+```
 
