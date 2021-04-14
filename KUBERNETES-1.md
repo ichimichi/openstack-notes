@@ -1,3 +1,26 @@
+#### VM setup
+on mater and all workers
+
+disable firewall 
+```
+systemctl disable firewall
+```
+
+remove swap from /etc/fstab disable swap
+```
+vi /etc/fstab
+swapoff -a
+```
+
+set selinux to disabled
+```
+setenforce 0
+```
+
+and restart master and all workers
+
+
+#### Kuernetes Cluster Setup
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
