@@ -138,7 +138,7 @@ Namespace
 kubectl create namespace google
 kubectl get ns
 kubectl create deployment google --image=nginx -n google
-kubectl get pods
+kubectl get pods -n google
 ```
 
 Context
@@ -150,3 +150,28 @@ kubectl --context=ibm-context get pods
 > Error from server (Forbidden): pods is forbidden: User "ibm" cannot list resource "pods" in API group "" in the namespace "google"
 
 need RBAC
+
+* verbs
+* resources
+* subjects
+
+> role: defining action on rersources
+
+> role bindidng: binding subject to roles
+
+> [role.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/role.yaml)
+
+```
+kubectl apply -f role.yaml
+kubectl get role -n google
+kubectl describe role developer -n google
+```
+
+> [rolebind.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/rolebind.yaml)
+
+```
+kubectl apply -f rolebind.yaml
+kubectl get rolebinding -n google
+kubectl describe rolebinding developer-role-binding -n google
+kubectl --context=ibm-context get pods
+```
