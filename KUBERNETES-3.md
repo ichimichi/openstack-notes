@@ -58,3 +58,15 @@ create pod config
 ```
 kubectl describe pod/ibm
 ```
+
+##### Demonstration
+on master or any worker
+```
+curl 10.36.0.1
+```
+
+override index.html by using the following commands 
+```
+echo "Data is coming from pv1/pvc1">/ibmdata/index.html
+curl 10.36.0.1
+```
