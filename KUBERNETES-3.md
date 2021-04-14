@@ -70,3 +70,83 @@ override index.html by using the following commands
 echo "Data is coming from pv1/pvc1">/ibmdata/index.html
 curl 10.36.0.1
 ```
+
+#### RBAC
+> Role Based Access Control
+
+Authentication
+> userid/password, certificates SSL/TLS config file
+
+Authorization
+> RBAC performs authorizaton, e.g can user create pod?
+
+Admission Control
+>
+
+Admission Controller
+>
+
+```
+cat /root/.kube/config
+```
+or
+```
+kubectl config view
+```
+
+##### Demonstration
+
+create a user
+```
+useradd ibm
+echo 123 | passwd --stdin ibm
+```
+
+cd to ibm user directory
+```
+cd /home/ibm
+```
+
+generate key using openssl
+```
+openssl genrsa -out ibm.key 2048 
+```
+
+create CSR using key
+```
+openssl req -new -key ibm.key -out ibm.csr -subj "/CN=ibm"
+```
+
+generate certificate
+```
+openssl x509 -req -in ibm.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out ibm.crt -days 500
+```
+
+```
+mkdir .certs
+mv ibm.* .certs/
+cd .certs
+```
+
+```
+kubectl config set-credentials ibm --client-certificate=/home/ibm/.certs/ibm.crt --client-key=/home/ibm/.certs/ibm.key
+kubectl config view
+```
+
+Namespace
+```
+kubectl create namespace google
+kubectl get ns
+kubectl create deployment google --image=nginx -n google
+kubectl get pods
+```
+
+Context
+```
+kubectl config set-context ibm-context --cluster=kubernetes --namespace=google --user=ibm
+kubectl config get-contexts
+kubectl --context=ibm-context get pods
+```
+> Error from server (Forbidden): pods is forbidden: User "ibm" cannot list resource "pods" in API group "" in the namespace "google"
+
+need RBAC
