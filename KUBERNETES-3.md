@@ -155,9 +155,9 @@ need RBAC
 * resources
 * subjects
 
-> role: defining action on rersources
+> **role:** defining action on rersources
 
-> role bindidng: binding subject to roles
+> **role binding:** binding subject to roles
 
 > [role.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/role.yaml)
 
