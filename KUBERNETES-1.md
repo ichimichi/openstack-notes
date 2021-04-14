@@ -12,8 +12,9 @@ vi /etc/fstab
 swapoff -a
 ```
 
-set selinux to disabled
+set selinux to disabled in /etc/selinux/config and setenforce to 0
 ```
+vi /etc/selinux/config
 setenforce 0
 ```
 
