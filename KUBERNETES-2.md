@@ -142,7 +142,7 @@ kubectl rollout undo deployment/app3 --to-revision=2
 
 [vol1.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol1.yaml)
 
-[vol2.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol1.yaml)
+[vol2.yaml](https://gitlab-nht.stackroute.in/Laribok.Syiemlieh/openstack-notes/-/blob/master/vol2.yaml)
 
 ##### Hostpath
 > 
@@ -153,8 +153,3 @@ to set pod label
 ```
 kubectl label pod/pod3 "app=prod"
 ```
-
-##### Persisten Volume Claim PVC
->
-
-
