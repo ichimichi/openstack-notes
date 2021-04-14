@@ -1,4 +1,4 @@
-#### Persisten Volume
+#### Persistent Volume
 > Common External Storage for clusters
 
 ##### Pre-requisites
