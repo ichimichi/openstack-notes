@@ -74,7 +74,7 @@ oc cluster up --public-hostname=aws_public_IP
 >
 > The server is accessible via web console at:
 >
->    https://65.0.91.3:8443
+>    https://aws_public_IP:8443
 >
 > You are logged in as: 
 >
@@ -84,7 +84,7 @@ oc cluster up --public-hostname=aws_public_IP
 >
 >    oc login -u system:admin 
 
-open https://65.0.91.3:8443/console on browser and login as developer
+open https://aws_public_IP:8443/console on browser and login as developer
 
 
 
