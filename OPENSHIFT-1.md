@@ -90,7 +90,13 @@ open https://aws_public_IP:8443/console on browser and login as developer
 oc login -u system:admin 
 oc adm policy add-scc-to-user anyuid -z default
 ```
+> scc "anyuid" added to: ["system:serviceaccount:myproject:default"]  
 
+```
+oc get project
+oc get pods -o wide
+oc exec -it 
+```
 
 ### Openshift Enterprise Installation
 >  AWS - 4 machines 
