@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: d1
+  labels:
+    dish: samosa
+spec:
+  selector:
+    dish: samosa
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
