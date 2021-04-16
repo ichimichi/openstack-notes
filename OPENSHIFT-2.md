@@ -46,3 +46,14 @@ oc scale dc ibm2 --replicas=3
 ```
 oc new-app --name=db2 docker.io/mysql -e MYSQL_ROOT_PASSWORD=123
 ```
+
+### FullStack Application Deployment with web hooks
+
+##### Web Hook
+> [Guide](https://developer.ibm.com/technologies/containers/tutorials/github-webhook-triggers-openshift/)
+
+##### Frontend
+> [repo](https://github.com/ichimichi/ibm8)
+
+#### Backend
+> [repo](https://github.com/ichimichi/backend)
