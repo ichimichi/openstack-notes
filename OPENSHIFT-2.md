@@ -98,7 +98,6 @@ vi /etc/hosts
 # 13.232.94.15 ansible3  
 ```
 
-
 test
 
 on ansible 1
