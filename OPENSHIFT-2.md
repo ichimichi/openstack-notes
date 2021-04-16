@@ -60,6 +60,7 @@ oc new-app --name=db2 docker.io/mysql -e MYSQL_ROOT_PASSWORD=123
 > [repo](https://github.com/ichimichi/backend)
 
 
+
 ### Ansible
 > Ansible is agentless
 >
@@ -143,6 +144,11 @@ ansible prod -m ping
 ansible prod -m command -a hostname
 ```
 
+```
+cat /etc/motd
+ansible prod -m copy -a 'content="Managed by
+Ansible\n" dest=/etc/motd'
 
+```
 
 

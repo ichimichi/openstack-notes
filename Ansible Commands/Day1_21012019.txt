@@ -1,0 +1,171 @@
+Automation with Ansible
+--Version 2.7
+--DO407
+CHapter 1 : Introduction 
+            Concepts and Installation
+Ansible ( Similar tools are Puupet , Chef , Saltstack)
+Ansible Engine 2.7 -- CLI -- It is command line 
+                --250 Nodes
+                --CLI
+                --No support , need to take subscription for same.
+                -- Agentless Configuration ( No Configuration at client side required )
+                -- Push Architecture , however pull configuration can be setup
+                -- Simple ( YAML) Yet another Markup language
+                -- No Seperator or delimitor .. works on spaces
+                -- SSH 
+                ---written in Python 
+Ansible Server ( TOwer ) -- DO409
+                
+        --Enterprise Product
+        --Log Aggregation
+        --System Tracking
+        --Portabilty
+        --Web Dashboard
+            --RBAC
+        -- Job Schedular
+    
+Ansible Server Subscription : Standard and Premium 
+            
+=====================================================
+For Ansible Pricing details,https://www.ansible.com/products/tower/pricing
+To download ansible engine,   https://releases.ansible.com/ansible/
+To download ansible tower,        https://releases.ansible.com/ansible-tower/
+AWX -- Ansible Works --Community Product
+=========================================
+Prerequisite :
+COntrol Node : ( Ansible Server )
+            --- SSH
+            -- Python 2.7 or later
+            -- Selinux in targeted mode if it is enabled
+            -- FOr Windows -- Pywinrm plugin 
+            -- Paramiko plugin ( For Persistent Connection) -- For parallel Connectivity with clients
+FOr Managed Hosts : 
+                    -- SSH
+                    -- Python 2.4 with simple-jason or later
+                    -- Targeted policy if selinux in enabled mode   
+                    -- for windows client -- >NET FRamework
+                                        -- powershell 3.0 or later              
+                                        --winrm plugin
+=========
+=======================================================
+Installation of Ansible 
+# yum list ansible openssh python
+# yum install ansible
+# ansible --version
+================================
+AWX tar file:   https://github.com/ansible/awx
+AWX RPM:     https://copr.fedorainfracloud.org/coprs/mrmeee/awx/repo/epel-7/mrmeee-awx-epel-7.repo
+For AWX Installation:       https://www.howtoforge.com/tutorial/how-to-install-ansible-awx-with-docker-on-centos/              https://www.howtoforge.com/tutorial/centos-ansible-awx-installation/
+For AWX Installation:       https://www.howtoforge.com/tutorial/how-to-install-ansible-awx-with-docker-on-centos/              https://www.howtoforge.com/tutorial/centos-ansible-awx-installation/
+=========================================
+COnfiguring inventory file
+COnfiguring  configuration file
+        ---priorities 
+=========================================
+Configuration of inventory file
+To view default configuration files of ansible 
+# ansible --version
+# Default configuration inventory file 
+# ls -l /etc/ansible/hosts
+# add hosts entry to this file
+ 192.168.0.[1:254]
+ 10.0.0.[1:254].[1:254]
+ [dev]
+ servera.labs.example.com
+ servera.labs.example.com
+ [prod]
+ servera.labs.example.com
+ servera.labs.example.com
+ [web:children]
+ dev
+ prod
+syntax
+ansible pattern command
+ 
+# ansible all --list-hosts
+# ansible prod --list-hosts
+# ansible dev --list-hosts
+# ansible ungrouped --list-hosts
+# ansible web --list-all
+# ansible all --list-hosts -i /tmp/inventory
+# Configuration File /etc/ansible/ansible.cfg
+Setting up configuration file in local directory
+#touch /var/ansible.cfg
+# ansible --version
+Setting up configuration file in .bashrc file of user
+#touch /usr/ansible.cfg
+#vim ~/.bashrc
+#export ANSIBLE_CONFIG=/usr/ansible.cfg
+#source ~/.bashrc
+#ansible --version
+### if locally ansible.cfg file is not configured in directory and .bashrc file for
+individual user then default /etc/ansible/ansible.cfg is considered by ansible
+#### Configuration of ansible.cfg to deploy ansible modules
+Sections of ansible.cfg file 
+# cat /etc/ansible/ansible.cfg | grep ^ [[] 
+[defaults]
+[privilege_escalation] -- contains settings for defining how operations that
+require escalated privileges are executed on managed hosts.
+[paramiko_connection]
+[ssh_connection]
+[accelerate]
+[selinux]
+[galaxy] --section is also available for defining parameters
+related to Ansible Galaxy
+Configuring Connections
+Ansible needs to know how to communicate with its managed hosts. 
+One of the most common reasons to change the configuration file is in order to control what methods and users Ansible will use to administer managed hosts. 
+Some of the information needed includes:
+• Where the inventory is that lists the managed hosts and host groups
+• Which connection protocol to use to communicate with the managed hosts 
+(by default, SSH), and whether a non-standard network port is needed to connect
+ to the server
+• Which remote user to use on the managed hosts; this could be root or it could be an
+unprivileged user
+• If the remote user is unprivileged, Ansible needs to know whether it should 
+try to escalate privileges to root and how to do it (for example, by using sudo)
+• Whether or not to prompt for an SSH password or sudo password to log in or
+ gain privileges
+ 
+ # Important points while configuring ansible.cfg
+ 1. section [defaults]
+    inventory = /etc/ansible/ansible.cfg
+    remote_user = devops ( If not specified , ansible considers local user)
+    ask_pass = true ( if key based authentication is not set )
+    
+    [privilege_escalation]
+    become = false  --- to enable privilege_escalation section set it to true
+    become_method = sudo
+    become_user = root
+    become_ask_method = true
+    
+ 
+privilege_escalation section parameters :
+remote_user : The remote user account used to establish connections to managed
+hosts.
+ask_pass :  Prompt for a password to use when connecting as the remote user.
+become :  Enable or disable privilege escalation for operations on managed
+hosts.
+become_method : The privilege escalation method to use on managed hosts.
+become_user : The user account to escalate privileges to on managed hosts.
+become_ask_pass : Defines whether privilege escalation on managed hosts should prompt
+for a password.
+Chapter 3
+Implementating Playbooks 
+        How to create YAML syntax
+        
+        Online YAML syntax validator:             http://www.yamllint.com/
+        
+        
+        
+        
+        ==================================
+        
+        https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html
+        https://github.com/ansible/ansible/tree/devel/contrib/inventory
+        
+        https://galaxy.ansible.com/
+        
+        sindhu@redhat.com
+        7760653627
+http://releases.ansible.com
