@@ -22,6 +22,7 @@ oc adm policy add-scc-to-user anyuid -z default
 oc new-app --name=ibm1 docker.io/nginx
 ```
 
+#### Deployment vs Deployment Config
 ```
 oc get deployment
 ```
