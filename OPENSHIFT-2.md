@@ -58,3 +58,47 @@ oc new-app --name=db2 docker.io/mysql -e MYSQL_ROOT_PASSWORD=123
 
 #### Backend
 > [repo](https://github.com/ichimichi/backend)
+
+
+### Ansible
+> Ansible is agentless
+>
+> Control Node & Host Nodes
+>
+> Need to create inventory of all infrastructure components
+>
+
+#### Demonstration
+> create 3 VMs 1 core 1 1gb ram and set hostname as ansible1, 2 and 3
+
+for local
+```
+ssh-keygen -t rsa
+ssh-copy-id -i key,pem centos@ansible2
+vi /etc/hosts
+```
+
+in aws
+on ansible 1
+```
+ssh-keygen -t rsa 
+# vi key.pem
+# chmod 600 key.pem
+```
+
+copy id_rsa.pub content of ansible1 to ansible2 and ansible3 authorized keys
+```
+vi .ssh/authorized_keys
+```
+
+on ansible 1
+```
+yum install epel-release -y
+yum install ansible -y
+ansible --version
+```
+
+on all ansible
+```
+yum update -y
+```
