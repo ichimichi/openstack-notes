@@ -74,8 +74,8 @@ oc new-app --name=db2 docker.io/mysql -e MYSQL_ROOT_PASSWORD=123
 for local
 ```
 ssh-keygen -t rsa
-ssh-copy-id -i key,pem centos@ansible2
-vi /etc/hosts
+# ssh-copy-id -i key,pem centos@ansible2
+# vi /etc/hosts
 ```
 
 in aws
@@ -91,6 +91,23 @@ copy id_rsa.pub content of ansible1 to ansible2 and ansible3 authorized keys
 vi .ssh/authorized_keys
 ```
 
+create dns for ansible 2 and 3
+```
+vi /etc/hosts
+# 65.0.17.158 ansible2
+# 13.232.94.15 ansible3  
+```
+
+
+test
+
+on ansible 1
+```
+ssh ansible2
+ssh ansible3
+```
+> should be able to ssh into ansible 2 and 3 from ansible 1
+
 on ansible 1
 ```
 yum install epel-release -y
@@ -102,3 +119,31 @@ on all ansible
 ```
 yum update -y
 ```
+to set up inventory
+on ansible 1
+```
+vi /etc/ansible/hosts
+#[prod]
+#ansible2
+#ansible3
+#
+#[test]
+#ansible3
+#
+#[db]
+#ansible2
+#
+#[dev: children]
+#db
+#test
+```
+
+```
+ansible prod --list-hosts
+ansible prod -m ping
+ansible prod -m command -a hostname
+```
+
+
+
+
